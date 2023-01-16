@@ -1,6 +1,4 @@
-from http import HTTPStatus
-
-from flask import flash, redirect, render_template, abort
+from flask import flash, redirect, render_template
 
 from . import app
 from .forms import URLForm
@@ -31,4 +29,3 @@ def jump(short):
     return redirect(
         URLMap.query.filter_by(short=short).first_or_404().original
     )
-
