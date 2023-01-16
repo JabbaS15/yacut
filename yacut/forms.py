@@ -1,6 +1,6 @@
 from flask_wtf import FlaskForm
 from wtforms import SubmitField, URLField
-from wtforms.validators import DataRequired, Length, Optional, URL
+from wtforms.validators import DataRequired, Length, Optional, URL, Regexp
 
 
 class URLForm(FlaskForm):
@@ -17,6 +17,10 @@ class URLForm(FlaskForm):
         validators=(
             Optional(),
             Length(max=16, message='Слишком длинное название'),
+            Regexp(
+                '^[A-Za-z0-9]*$',
+                message='Можно использовать только латинские буквы и цифры'
+            )
         )
     )
     submit = SubmitField('Создать')

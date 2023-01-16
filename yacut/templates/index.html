@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 {% block content %}
-<main>
   <section class="container my-5 px-4">
     <h1 class="text-center"><span style="color:red">Ya</span>Cut</h1>
     <p class="text-center my-4">
@@ -47,10 +46,10 @@
             {% with messages = get_flashed_messages() %}
               {% if messages %}
                 <h5 class="text-center">{{ messages[0] }}
-                {% if messages[1] %}
-                  <a href="{{ url_for("jump", short=messages[1], _external=True) }}">{{ url_for("jump", short=messages[1], _external=True) }}</a>
-                </h5>
-                {% endif %}
+                  {% if messages[1] %}
+                    <a href="{{ url_for("jump", short=messages[1], _external=True) }}">{{ url_for("jump", short=messages[1], _external=True) }}</a>
+                    </h5>
+                  {% endif %}
               {% endif %}
             {% endwith %}
         </div>
@@ -59,11 +58,4 @@
       </div>
     </div>
   </section>
-</main>
 {% endblock %}
-{#<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"#}
-{#        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"#}
-{#        crossorigin="anonymous"></script>#}
-{#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"#}
-{#        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"#}
-{#        crossorigin="anonymous"></script>#}

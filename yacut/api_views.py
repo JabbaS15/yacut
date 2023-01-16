@@ -1,3 +1,5 @@
+from http import HTTPStatus
+
 from flask import jsonify, request, url_for
 
 from . import app
@@ -19,19 +21,19 @@ def create_short_url():
         data.get('custom_id'), f'Имя "{data.get("custom_id")}" уже занято.'
     )
     if error:
-        raise InvalidAPIUsage(error, 400)
+        raise InvalidAPIUsage(error, HTTPStatus.BAD_REQUEST)
     create_url_map(original, short)
 
     result = {
         'short_link': f'{url_for("jump", short=short, _external=True)}',
         'url': original
     }
-    return jsonify(result), 201
+    return jsonify(result), HTTPStatus.CREATED
 
 
 @app.route('/api/id/<string:short_id>/', methods=('GET', ))
 def get_original_url(short_id):
     original = URLMap.query.filter_by(short=short_id).first()
     if original is None:
-        raise InvalidAPIUsage('Указанный id не найден', 404)
-    return jsonify({'url': original.original}), 200
+        raise InvalidAPIUsage('Указанный id не найден', HTTPStatus.NOT_FOUND)
+    return jsonify({'url': original.original}), HTTPStatus.OK

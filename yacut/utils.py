@@ -13,21 +13,17 @@ def get_unique_short_id():
 
 
 def check_string(value):
-    for letter in value:
-        if letter not in ALLOWED_CHARS:
-            return True
-    return False
+    return all((letter in ALLOWED_CHARS) for letter in value)
 
 
 def check_len(value):
-    if len(value) > 16:
-        return True
+    return len(value) > 16
 
 
 def validate_short_id(short, error_massage):
     if short is None or short == '':
         return get_unique_short_id(), None
-    if check_string(short):
+    if not check_string(short):
         raise InvalidAPIUsage(
             'Указано недопустимое имя для короткой ссылки', 400
         )
