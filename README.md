@@ -1,78 +1,49 @@
-##### [Шведков Роман](https://github.com/JabbaS15)
-# Проект YaCut 
-Это сервис укорачивания ссылок.
-Его назначение — ассоциировать длинную пользовательскую ссылку с короткой, которую предлагает сам пользователь или предоставляет сервис.
+# YaCut - Cервис укорачивания ссылок.
+[![Python](https://img.shields.io/badge/-Python_3.10-464646?style=flat&logo=Python&logoColor=ffffff&color=013220)](https://www.python.org/)
+[![Flask](https://img.shields.io/badge/-Flask_2.0.2-464646?style=flat&logo=Flask&logoColor=ffffff&color=013220)](https://flask.palletsprojects.com/)
+[![Jinja2](https://img.shields.io/badge/-Jinja2_3.0.3-464646?style=flat&logo=Jinja2&logoColor=ffffff&color=013220)](https://jinja.palletsprojects.com/)
+[![SQLAlchemy](https://img.shields.io/badge/-SQLAlchemy_1.4.29-464646?style=flat&logo=SQLAlchemy&logoColor=ffffff&color=013220)](https://www.sqlalchemy.org/)
 
-## Технологии
-- Python 3.10
-- Flask 2.0.2
-- Jinja2 3.0.3
-- SQLAlchemy 1.4.29
-
-## Описание проетка:
+## Описание проекта:
 Ключевые возможности сервиса:
 
 - генерация коротких ссылок и связь их с исходными длинными ссылками,
 - переадресация на исходный адрес при обращении к коротким ссылкам.
 
 ### Формат для ссылки по умолчанию.
-#### Шесть случайных символов, в качестве которых можно использовать:
+Шесть случайных символов, в качестве которых можно использовать:  
 - большие латинские буквы,
 - маленькие латинские буквы,
 - цифры в диапазоне от 0 до 9.
 
 
-Клонировать репозиторий и перейти в него в командной строке:
-
+## Инструкция по развёртыванию:
+1. Загрузите проект:
+```bash
+git clone https://github.com/JabbaS15/yacut.git
 ```
-git clone 
-```
-
-```
-cd yacut
-```
-
-Cоздать и активировать виртуальное окружение:
-
-```
-python3 -m venv venv
-```
-
-* Если у вас Linux/macOS
-
-    ```
-    source venv/bin/activate
-    ```
-
-* Если у вас windows
-
-    ```
-    source venv/scripts/activate
-    ```
-
-Установить зависимости из файла requirements.txt:
-
-```
+2. Установите и активируйте виртуальное окружение:
+```bash
+python -m venv venv
+source venv/Scripts/activate
 python3 -m pip install --upgrade pip
 ```
-
-```
+3. Установите зависимости:
+```bash
 pip install -r requirements.txt
 ```
-
-Создать файл настроек окружения:
-```
+4. Создать файл настроек окружения .env и заполнить его:
+```bash
 touch .env
-```
-Заполнить файл .env:
-```
+
 FLASK_APP=yacut
 FLASK_ENV=development
 DATABASE_URI='MY DATABASE'
 SECRET_KEY='MY SECRET KEY'
 ```
-
-Запустить проект.
+5. Запустить проект.
 ```
 flask run
 ```
+### Автор проекта:
+[Шведков Роман](https://github.com/JabbaS15)
