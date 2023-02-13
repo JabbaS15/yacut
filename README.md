@@ -35,7 +35,8 @@ pip install -r requirements.txt
 4. Создать файл настроек окружения .env и заполнить его:
 ```bash
 touch .env
-
+```
+```bash
 FLASK_APP=yacut
 FLASK_ENV=development
 DATABASE_URI='MY DATABASE'
